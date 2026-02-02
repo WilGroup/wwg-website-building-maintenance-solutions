@@ -1,0 +1,36 @@
+---
+const nav = [
+  { label: "Home", href: "/" },
+  { label: "Bedrijven", href: "/bedrijven" },
+  { label: "Contact", href: "/contact" },
+];
+
+// Detecteer of we op E Luga Guesthouse zitten
+const isELuga = Astro.url.pathname.startsWith("/bedrijven/e-luga-guesthouse");
+---
+
+<header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-black/5">
+  <div class="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
+
+    <!-- Logo / naam -->
+    <a
+      href="/"
+      class="text-sm font-semibold tracking-tight text-gray-900"
+    >
+      {isELuga ? "E Luga Guesthouse" : "Wilson & Wilson Group"}
+    </a>
+
+    <!-- Navigatie -->
+    <nav class="flex items-center gap-6">
+      {nav.map((item) => (
+        <a
+          href={item.href}
+          class="text-sm font-medium text-gray-600 hover:text-gray-900 transition"
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+  </div>
+</header>

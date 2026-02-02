@@ -1,0 +1,22 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "bedrijven"
+    label: "Bedrijven"
+    folder: "bedrijven"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Naam", name: "title", widget: "string" }
+      - { label: "Website", name: "website", widget: "string" }
+      - { label: "Facebook", name: "facebook", widget: "string", required: false }
+      - { label: "Instagram", name: "instagram", widget: "string", required: false }
+      - { label: "LinkedIn", name: "linkedin", widget: "string", required: false }
+      - { label: "WhatsApp", name: "whatsapp", widget: "string", required: false }
+      - { label: "TikTok", name: "tiktok", widget: "string", required: false }
+      - { label: "Logo", name: "logo", widget: "image", required: false }

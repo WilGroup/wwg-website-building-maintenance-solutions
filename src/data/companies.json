@@ -1,0 +1,96 @@
+{
+  "holding": {
+    "name": "Wilson & Wilson Group",
+    "slug": "wilson-wilson-group",
+    "tagline": "Holding & portfolio.",
+    "contact": {
+      "email": "wilsonenpartnerdf@gmail.com",
+      "phone_cur": "+5999 511 2894",
+      "phone_nl": "+31 6 5353 1060",
+      "address_cur": "Kaya Louis Zschuschen 4, Bonam",
+      "address_nl": "Weerepolder 7, 3825JX, Amersfoort Utrecht"
+    }
+  },
+  "companies": [
+    {
+      "name": "Wilson & Wilson Administratiekantoor",
+      "slug": "wilson-wilson-administratiekantoor",
+      "tagline": "Heldere administratie en financiële rust voor ondernemers.",
+      "summary": "Wilson & Wilson Administratiekantoor biedt administratieve en financiële dienstverlening voor ZZP’ers en MKB-ondernemers, met focus op betrouwbaarheid, overzicht en continuïteit.",
+      "highlights": [
+        "Boekhouding & periodieke rapportage",
+        "Jaarrekeningen",
+        "Belastingaangiften",
+        "Administratieve ondersteuning en advies"
+      ],
+      "rationale": [
+        "Persoonlijke benadering en heldere communicatie",
+        "Transparant inzicht en consistente werkwijze",
+        "Structurele marktvraag door groeiend ondernemerschap en regelgeving",
+        "Onderdeel van Wilson & Wilson Group"
+      ],
+      "ctaLabel": "Neem contact op",
+      "ctaLink": "/contact",
+      "contact": {
+        "email": "wilsonenpartner.office@gmail.com",
+        "phone_cur": "+5999 511 2894",
+        "phone_nl": "+31 6 5353 1060",
+        "address_cur": "Kaya Louis Zschuschen 4, Bonam",
+        "address_nl": "Weerepolder 7, 3825JX, Amersfoort Utrecht"
+      }
+    },
+    {
+      "name": "E Luga Guesthouse",
+      "slug": "e-luga-guesthouse",
+      "tagline": "Een kleinschalige en rustige guesthouse voor een comfortabel verblijf.",
+      "summary": "E Luga Guesthouse is een kleinschalige en rustige accommodatie met vier comfortabele kamers. De guesthouse is gericht op gasten die waarde hechten aan privacy, comfort en een ontspannen verblijf, met aandacht voor persoonlijke service en een prettige sfeer.",
+      "highlights": [
+        "Vier comfortabele kamers",
+        "Rustige en kleinschalige accommodatie",
+        "Airconditioning en basisvoorzieningen",
+        "Privacy en ontspanning centraal",
+        "Geschikt voor kort en langer verblijf"
+      ],
+      "rationale": [
+        "Wij bieden een rustige verblijfservaring zonder massatoerisme.",
+        "Onze kamers zijn praktisch en comfortabel ingericht.",
+        "Wij zijn bereikbaar wanneer nodig en respecteren de privacy van onze gasten."
+      ],
+      "ctaLabel": "Bekijk mogelijkheden",
+      "ctaLink": "/contact/e-luga-guesthouse",
+      "contact": {
+        "email": "wpelugaghuesthouse@gmail.com",
+        "phone_cur": "+5999 511 2894",
+        "phone_nl": "+31 6 5353 1060",
+        "address_cur": "Kaya Louis Zschuschen 4, Bonam",
+        "address_nl": "Weerepolder 7, 3825JX, Amersfoort Utrecht"
+      }
+    },
+    {
+      "name": "Building Maintenance Solutions",
+      "slug": "building-maintenance-solutions",
+      "tagline": "Planmatig gebouwonderhoud met heldere planning, inzicht en uitvoering.",
+      "summary": "BMS ondersteunt vastgoedeigenaren, VvE’s en bedrijfsmatig vastgoed met planmatig onderhoud en onderhoudscoördinatie. We combineren inspecties en onderhoudsplanning met duidelijke opvolging, zodat onderhoud voorspelbaar, beheersbaar en transparant wordt.",
+      "highlights": [
+        "Planmatig onderhoud en onderhoudsplanning (MJOP-light waar passend)",
+        "Inspecties, monitoring en duidelijke rapportage",
+        "Onderhoudscoördinatie: planning, opvolging en kwaliteitscontrole",
+        "Inzicht in kosten, prioriteiten en onderhoudsstaat"
+      ],
+      "rationale": [
+        "Voorspelbaar onderhoud met duidelijke prioriteiten en kostenoverzicht",
+        "Eén aanspreekpunt voor planning, opvolging en kwaliteitsbewaking",
+        "Transparante rapportage: je weet wat er gebeurt en waarom"
+      ],
+      "ctaLabel": "Plan een gesprek",
+      "ctaLink": "/contact",
+      "contact": {
+        "email": "wpbimbuildingsolutionscarib@gmail.com",
+        "phone_cur": "+5999 511 2894",
+        "phone_nl": "+31 6 5353 1060",
+        "address_cur": "Kaya Louis Zschuschen 4, Bonam",
+        "address_nl": "Weerepolder 7, 3825JX, Amersfoort"
+      }
+    }
+  ]
+}

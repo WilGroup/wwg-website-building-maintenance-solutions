@@ -1,0 +1,39 @@
+---
+import "../styles/global.css";
+const { title = "Wilson & Wilson Group" } = Astro.props;
+
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+---
+
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+  </head>
+
+  <body class="min-h-screen flex flex-col bg-transparent text-gray-900 antialiased">
+    <!-- Extra diepe oranje base -->
+    <div class="fixed inset-0 -z-20 wwg-bg-base pointer-events-none"></div>
+
+    <!-- Hoofdgradient -->
+    <div class="fixed inset-0 -z-10 wwg-bg pointer-events-none"></div>
+
+    <!-- Grid (bijna onzichtbaar) -->
+    <div class="fixed inset-0 -z-10 wwg-grid pointer-events-none opacity-[0.03]"></div>
+
+    <SiteHeader />
+
+    <main class="flex-1 max-w-7xl mx-auto px-4 py-16">
+      <div
+        class=<div class="p-6 sm:p-8">
+      >
+        <slot />
+      </div>
+    </main>
+
+    <SiteFooter />
+  </body>
+</html>

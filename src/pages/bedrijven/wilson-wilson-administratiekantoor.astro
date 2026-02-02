@@ -1,0 +1,28 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import CompanyHero from "../../components/CompanyHero.astro";
+import CompanyDetail from "../../components/CompanyDetail.astro";
+
+import data from "../../data/companies.json";
+
+const companies = data?.companies ?? [];
+const company = companies.find((c) => c?.slug === "wilson-wilson-administratiekantoor");
+---
+
+<Layout title={company ? `${company.name} | Wilson & Wilson Group` : "Wilson & Wilson Administratiekantoor"}>
+  {company ? (
+    <>
+      <CompanyHero company={company} badge="Administratiekantoor" />
+      <section class="mt-10">
+        <CompanyDetail company={company} />
+      </section>
+    </>
+  ) : (
+    <section class="mt-10 max-w-3xl">
+      <h1 class="text-2xl font-semibold">Bedrijf niet gevonden</h1>
+      <p class="mt-4 opacity-90">
+        De slug <code>wilson-wilson-administratiekantoor</code> is niet gevonden in <code>src/data/companies.json</code> onder <code>companies[]</code>.
+      </p>
+    </section>
+  )}
+</Layout>

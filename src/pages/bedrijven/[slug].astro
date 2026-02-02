@@ -1,0 +1,47 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import data from "../../data/companies.json";
+
+export function getStaticPaths() {
+  return data.companies.map((company) => ({
+    params: { slug: company.slug },
+    props: { company },
+  }));
+}
+
+const { company } = Astro.props;
+---
+
+<Layout title={`${company.name} | ${data.holding.name}`}>
+  <p><a href="/bedrijven">← Terug naar bedrijven</a></p>
+
+  <h1>{company.name}</h1>
+  <p style="max-width: 70ch; opacity: 0.9;">{company.tagline}</p>
+
+  <h2>Over</h2>
+  <p style="max-width: 75ch;">{company.summary}</p>
+
+  {company.highlights?.length ? (
+    <>
+      <h2>Wat we doen</h2>
+      <ul>
+        {company.highlights.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </>
+  ) : null}
+
+  {company.rationale?.length ? (
+    <>
+      <h2>Onderbouwing</h2>
+      <ul>
+        {company.rationale.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </>
+  ) : null}
+
+  <a class="btn" href={company.ctaLink}>{company.ctaLabel}</a>
+</Layout>
