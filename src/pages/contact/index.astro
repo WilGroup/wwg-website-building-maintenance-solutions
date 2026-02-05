@@ -1,36 +1,51 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import data from "../../data/companies.json";
+import companies from "../../data/companies.json";
 
-const holding = data.holding;
-const c = holding.contact;
+const company = companies?.[0];
+if (!company) throw new Error("No company found in src/data/companies.json");
 
-// tel-links: spaties eruit
-const telNL = c.phone_nl.replace(/\s+/g, "");
-const telCUR = c.phone_cur.replace(/\s+/g, "");
+const contact = company.contact ?? {};
 ---
 
-<Layout title={`Contact | ${holding.name}`}>
-  <h1>Contact</h1>
-  <p>
-    Neem contact op met {holding.name}. Vermeld bij voorkeur om welk bedrijf of onderwerp het gaat.
-  </p>
+<Layout title={`${company?.name ?? "BMS"} | Contact`}>
+  <section class="bms-surface rounded-3xl p-7 sm:p-10">
+    <h1 class="text-2xl font-semibold tracking-tight bms-ink">Contact</h1>
+    <p class="mt-3 max-w-3xl text-sm bms-ink-2">
+      Neem contact op om je onderhoudsvraag te bespreken.
+    </p>
 
-  <h2>Algemeen</h2>
-  <p>
-    E-mail: <a href={`mailto:${c.email}`}>{c.email}</a>
-  </p>
+    <div class="mt-8 grid gap-4 sm:grid-cols-2">
+      <div class="rounded-2xl bg-white/55 p-5">
+        <h2 class="text-sm font-semibold bms-ink">E-mail</h2>
+        <p class="mt-2 text-sm bms-ink-2">
+          <a class="underline hover:no-underline" href={`mailto:${contact.email ?? ""}`}>
+            {contact.email ?? "—"}
+          </a>
+        </p>
+      </div>
 
-  <h2>Nederland</h2>
-  <p>
-    Telefoon: <a href={`tel:${telNL}`}>{c.phone_nl}</a><br />
-    Adres: {c.address_nl}
-  </p>
+      <div class="rounded-2xl bg-white/55 p-5">
+        <h2 class="text-sm font-semibold bms-ink">Telefoon</h2>
+        <p class="mt-2 text-sm bms-ink-2">
+          Curaçao: {contact.phone_cur ?? "—"}<br />
+          Nederland: {contact.phone_nl ?? "—"}
+        </p>
+      </div>
 
-  <h2>Curaçao</h2>
-  <p>
-    Telefoon: <a href={`tel:${telCUR}`}>{c.phone_cur}</a><br />
-    Adres: {c.address_cur}
-  </p>
+      <div class="rounded-2xl bg-white/55 p-5">
+        <h2 class="text-sm font-semibold bms-ink">Adres (NL)</h2>
+        <p class="mt-2 text-sm bms-ink-2">{contact.address_nl ?? "—"}</p>
+      </div>
+
+      <div class="rounded-2xl bg-white/55 p-5">
+        <h2 class="text-sm font-semibold bms-ink">Adres (Curaçao)</h2>
+        <p class="mt-2 text-sm bms-ink-2">{contact.address_cur ?? "—"}</p>
+      </div>
+    </div>
+
+    <p class="mt-10 text-sm bms-ink-3">
+      Onderdeel van Wilson &amp; Wilson Group.
+    </p>
+  </section>
 </Layout>
-

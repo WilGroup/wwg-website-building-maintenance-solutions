@@ -1,65 +1,94 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Hero from "../components/Hero.astro";
-import CompanyCard from "../components/CompanyCard.astro";
+import CompanyHero from "../components/CompanyHero.astro";
+import companies from "../data/companies.json";
 
-import data from "../data/companies.json";
+const company = companies?.[0];
+if (!company) throw new Error("No company found in src/data/companies.json");
 
-const holding = data?.holding;
-const companies = data?.companies ?? [];
+const services = company.highlights ?? [];
+const rationale = company.rationale ?? [];
 ---
 
-<Layout title={holding?.name ?? "Wilson & Wilson Group"}>
-  <div class="space-y-10">
-    <Hero
-      title={holding?.name ?? "Wilson & Wilson Group"}
-      tagline={holding?.tagline ?? "Holding & portfolio."}
-    />
+<Layout title={company?.name ?? "Building Maintenance Solutions"}>
+  <main class="space-y-12">
+    <CompanyHero company={company} badge="BMS" />
 
-    <section id="bedrijven" class="space-y-4">
-      <div class="flex items-end justify-between gap-4">
-        <div>
-          <h2 class="text-2xl font-bold text-[#3a1e10]">Onze bedrijven</h2>
-          <p class="mt-1 text-sm text-[#5a2d18]/80">
-            Actieve ondernemingen binnen de Wilson & Wilson Group.
-          </p>
+    <!-- Diensten: geen boxes -->
+    <section>
+      <div class="mx-auto max-w-6xl px-6">
+        <h2 class="text-xl font-semibold tracking-tight bms-ink">Diensten</h2>
+        <p class="mt-2 text-sm bms-ink-2">
+          Concreet aanbod, gericht op duidelijkheid en uitvoering.
+        </p>
+
+        <ul class="mt-6 grid gap-y-3 gap-x-8 sm:grid-cols-2">
+          {services.map((item) => (
+            <li class="text-sm leading-relaxed bms-ink-2">
+              <span class="mr-2 inline-block h-1.5 w-1.5 rounded-full" style="background: rgba(11,18,48,0.55)"></span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="bms-hairline"></div>
+    </div>
+
+    <!-- Waarom -->
+    <section>
+      <div class="mx-auto max-w-6xl px-6">
+        <h2 class="text-xl font-semibold tracking-tight bms-ink">
+          Waarom Building Maintenance Solutions
+        </h2>
+        <p class="mt-2 text-sm bms-ink-2">
+          Rationele argumenten: voorspelbaarheid, overzicht en professionele uitvoering.
+        </p>
+
+        <ul class="mt-6 list-disc space-y-2 pl-5 text-sm leading-relaxed bms-ink-2">
+          {rationale.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+
+        <p class="mt-8 text-sm bms-ink-3">
+          <span class="font-semibold bms-ink">Onderdeel van Wilson &amp; Wilson Group</span>.
+        </p>
+      </div>
+    </section>
+
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="bms-hairline"></div>
+    </div>
+
+    <!-- CTA: geen card, alleen tekst + knoppen -->
+    <section>
+      <div class="mx-auto max-w-6xl px-6 pb-6">
+        <h2 class="text-xl font-semibold tracking-tight bms-ink">
+          {company?.ctaLabel ?? "Plan een gesprek"}
+        </h2>
+        <p class="mt-2 max-w-2xl text-sm bms-ink-2">
+          Neem contact op om je onderhoudsvraag kort te bespreken en de volgende stap te bepalen.
+        </p>
+
+        <div class="mt-5 flex flex-wrap gap-3">
+          <a
+            href={company?.ctaLink ?? "/contact"}
+            class="inline-flex items-center rounded-xl px-5 py-3 text-sm font-semibold bms-btn-primary"
+          >
+            {company?.ctaLabel ?? "Plan een gesprek"} <span class="ml-2 opacity-90">→</span>
+          </a>
+
+          <a
+            href="/diensten"
+            class="inline-flex items-center rounded-xl px-5 py-3 text-sm font-semibold bms-btn-ghost"
+          >
+            Bekijk diensten
+          </a>
         </div>
-
-        <a
-          href="/bedrijven"
-          class="text-sm font-semibold text-orange-700 hover:text-orange-800"
-        >
-          Alles bekijken →
-        </a>
-      </div>
-
-      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {companies.map((c) => (
-          <CompanyCard
-            name={c.name}
-            summary={c.tagline ?? c.summary}
-            href={`/bedrijven/${c.slug}`}
-          />
-        ))}
       </div>
     </section>
-
-    <section class="space-y-3">
-      <h2 class="text-2xl font-bold text-[#3a1e10]">Hoe wij waarde creëren</h2>
-      <ol class="space-y-2 text-sm text-[#5a2d18]/90">
-        <li>
-          <span class="font-semibold">1. Strategie & governance</span><br />
-          Heldere structuur en focus binnen de holding.
-        </li>
-        <li>
-          <span class="font-semibold">2. Operational excellence</span><br />
-          Standaarden, processen en data als basis.
-        </li>
-        <li>
-          <span class="font-semibold">3. Groei & partnerships</span><br />
-          Schaalbare groei met duurzame samenwerkingen.
-        </li>
-      </ol>
-    </section>
-  </div>
+  </main>
 </Layout>

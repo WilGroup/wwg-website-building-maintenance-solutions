@@ -1,89 +1,64 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* =========================
-   Basis
-   ========================= */
 :root {
   color-scheme: light;
+
+  /* Donkerder champagne onderin (minder geel) */
+  --bms-champagne-deep: #e2c3a2;
+  --bms-champagne: #edd6bd;
+  --bms-champagne-2: #f4e7d7;
+  --bms-white: #ffffff;
+
+  /* Donkerblauw */
+  --bms-ink: #0b1230;
+  --bms-ink-2: rgba(11, 18, 48, 0.72);
+  --bms-ink-3: rgba(11, 18, 48, 0.55);
 }
 
-html,
-body {
-  height: 100%;
-}
+html, body { height: 100%; }
 
 body {
   margin: 0;
-  background: transparent; /* BELANGRIJK: background komt uit layout layers */
-  color: #111827;
+  background: transparent;
+  color: var(--bms-ink);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* =========================
-   Wilson & Wilson Group
-   Brand background (LOGO MATCH)
-   ========================= */
-
-/* Base layer: alleen onderin extra punch, boven transparant */
-.wwg-bg-base {
+/* Achtergrond */
+.bms-bg {
   background: linear-gradient(
     to top,
-    #f47c20 0%,
-    rgba(244, 124, 32, 0.85) 20%,
-    rgba(244, 124, 32, 0.35) 45%,
-    rgba(244, 124, 32, 0) 70%
+    var(--bms-champagne-deep) 0%,
+    var(--bms-champagne) 22%,
+    var(--bms-champagne-2) 55%,
+    var(--bms-white) 100%
   );
 }
 
-/* Hoofdgradient: vloeiend naar WIT boven */
-.wwg-bg {
-  background: linear-gradient(
-    to top,
-    #f47c20 0%,
-    #ff8a2a 18%,
-    #ffb45a 38%,
-    #ffe2bf 62%,
-    #fff4e7 78%,
-    #ffffff 100%
-  );
+/* Typografie */
+.bms-ink { color: var(--bms-ink); }
+.bms-ink-2 { color: var(--bms-ink-2); }
+.bms-ink-3 { color: var(--bms-ink-3); }
+
+/* Bijna onzichtbare scheiding */
+.bms-hairline {
+  border-top: 1px solid rgba(11, 18, 48, 0.06);
 }
 
-/* Subtiel grid — mag bijna onzichtbaar zijn */
-.wwg-grid {
-  background-image:
-    linear-gradient(
-      to right,
-      rgba(120, 72, 30, 0.025) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      to bottom,
-      rgba(120, 72, 30, 0.025) 1px,
-      transparent 1px
-    );
-  background-size: 64px 64px;
+/* Buttons */
+.bms-btn-primary {
+  background: var(--bms-ink);
+  color: #fff;
 }
+.bms-btn-primary:hover { filter: brightness(1.05); }
 
-/* =========================
-   UI helpers
-   ========================= */
-
-/* Zachte, luxe schaduw */
-.wwg-shadow {
-  box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.06),
-    0 12px 40px rgba(0, 0, 0, 0.08);
+.bms-btn-ghost {
+  background: rgba(255, 255, 255, 0.28);
+  color: var(--bms-ink);
 }
-
-/* Subtiele ring in logo-kleur */
-.wwg-ring {
-  border: 2px solid rgba(120, 72, 30, 0.35);
-}
-
-/* Content panels/cards:
-   grid verdwijnt volledig hierachter */
-.wwg-solid {
-  background: rgba(255, 255, 255, 0.90);
-  backdrop-filter: blur(8px);
+.bms-btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.38);
 }

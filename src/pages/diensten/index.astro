@@ -1,0 +1,53 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import CompanyHero from "../../components/CompanyHero.astro";
+
+import companies from "../../data/companies.json";
+const company = companies?.[0];
+
+if (!company) {
+  throw new Error("No company found in src/data/companies.json");
+}
+
+const services = company.highlights ?? [];
+---
+
+<Layout title={`Diensten | ${company.name}`}>
+  <div class="space-y-10">
+    <CompanyHero company={company} badge="BMS" />
+
+    <section class="space-y-3">
+      <h1 class="text-2xl font-semibold tracking-tight bms-ink">
+        Diensten
+      </h1>
+      <p class="text-sm bms-ink-2 max-w-3xl">
+        Concreet aanbod, gericht op duidelijkheid en uitvoering.
+      </p>
+
+      <!-- KADELOOS / LUXE: geen border, geen card-look -->
+      <div class="mt-6 grid gap-4 sm:grid-cols-2">
+        {services.map((item) => (
+          <div class="bms-surface bms-panel p-5">
+            <p class="text-sm leading-relaxed bms-ink-2">{item}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="bms-surface bms-panel p-6">
+      <h2 class="text-lg font-semibold tracking-tight bms-ink">
+        Plan een gesprek
+      </h2>
+      <p class="mt-2 text-sm bms-ink-2">
+        Neem contact op om je onderhoudsvraag kort te bespreken en de volgende stap te bepalen.
+      </p>
+
+      <a
+        href={company.ctaLink ?? "/contact"}
+        class="mt-5 inline-flex items-center rounded-xl px-4 py-2 text-sm font-semibold bms-btn-primary"
+      >
+        {company.ctaLabel ?? "Plan een gesprek"}
+      </a>
+    </section>
+  </div>
+</Layout>
