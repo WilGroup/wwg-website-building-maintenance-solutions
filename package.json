@@ -2,12 +2,10 @@
   "name": "wwg-astro-temp",
   "type": "module",
   "version": "0.0.1",
- "scripts": {
-  "build": "npm exec --no -- astro build"
-}
-
-    "preview": "astro preview",
-    "astro": "astro"
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
