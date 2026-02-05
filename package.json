@@ -1,12 +1,15 @@
 {
   "name": "wwg-website-building-maintenance-solutions",
-  "version": "1.0.0",
-  "type": "module",
   "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
-    "dev": "npx astro dev",
-    "build": "npx astro build",
-    "preview": "npx astro preview"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "dependencies": {
     "astro": "^5.16.6",
